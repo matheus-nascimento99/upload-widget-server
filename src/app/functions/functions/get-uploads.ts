@@ -36,7 +36,7 @@ export const getUploads = async (
       .select({
         id: schema.uploads.id,
         name: schema.uploads.name,
-        remoteKey: schema.uploads.id,
+        remoteKey: schema.uploads.remoteKey,
         remoteUrl: schema.uploads.remoteUrl,
         createdAt: schema.uploads.createdAt,
       })
