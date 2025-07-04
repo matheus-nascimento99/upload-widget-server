@@ -6,20 +6,18 @@ import { z } from 'zod'
 import { env } from '../env'
 import { r2 } from './client'
 
-const uploadImageToStorageInput = z.object({
+const uploadFileToStorageInput = z.object({
   folder: z.enum(['images', 'downloads']),
   fileName: z.string(),
   contentType: z.string(),
   contentStream: z.instanceof(Readable),
 })
 
-type UploadImageToStorageInput = z.input<typeof uploadImageToStorageInput>
+type UploadFileToStorageInput = z.input<typeof uploadFileToStorageInput>
 
-export const uploadImageToStorage = async (
-  input: UploadImageToStorageInput
-) => {
+export const uploadFileToStorage = async (input: UploadFileToStorageInput) => {
   const { folder, fileName, contentType, contentStream } =
-    uploadImageToStorageInput.parse(input)
+    uploadFileToStorageInput.parse(input)
 
   const fileNameExtension = extname(fileName)
   const fileNameWithoutExtension = basename(fileName, fileNameExtension)

@@ -1,6 +1,6 @@
 import { db } from '@/infra/db'
 import { schema } from '@/infra/db/schemas'
-import { uploadImageToStorage } from '@/infra/storage/upload-image-to-storage'
+import { uploadFileToStorage } from '@/infra/storage/upload-file-to-storage'
 import { type Either, makeLeft, makeRight } from '@/shared/either'
 import { Readable } from 'node:stream'
 import { z } from 'zod'
@@ -25,7 +25,7 @@ export const uploadImage = async (
     return makeLeft(new InvalidFileFormatError())
   }
 
-  const { key, url } = await uploadImageToStorage({
+  const { key, url } = await uploadFileToStorage({
     folder: 'images',
     fileName,
     contentType,
