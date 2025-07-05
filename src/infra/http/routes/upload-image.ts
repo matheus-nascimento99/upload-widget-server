@@ -1,6 +1,7 @@
 import { uploadImage } from '@/app/functions/functions/upload-image'
 import { isRight, unwrapEither } from '@/shared/either'
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
+import status from 'http-status'
 import { z } from 'zod/v4'
 
 export const uploadImageRoute: FastifyPluginAsyncZod = async server => {
@@ -12,8 +13,8 @@ export const uploadImageRoute: FastifyPluginAsyncZod = async server => {
         consumes: ['multipart/form-data'],
         tags: ['uploads'],
         response: {
-          201: z.null().describe('Image uploaded'),
-          400: z.object({ message: z.string() }),
+          [status.CREATED]: z.null().describe('Image uploaded'),
+          [status.BAD_REQUEST]: z.object({ message: z.string() }),
         },
       },
     },

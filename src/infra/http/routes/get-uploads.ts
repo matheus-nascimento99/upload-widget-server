@@ -1,6 +1,7 @@
 import { getUploads } from '@/app/functions/functions/get-uploads'
 import { unwrapEither } from '@/shared/either'
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
+import status from 'http-status'
 import { z } from 'zod/v4'
 
 export const getUploadsRoute: FastifyPluginAsyncZod = async server => {
@@ -18,7 +19,7 @@ export const getUploadsRoute: FastifyPluginAsyncZod = async server => {
           pageSize: z.coerce.number().optional().default(20),
         }),
         response: {
-          200: z.object({
+          [status.OK]: z.object({
             uploads: z.array(
               z.object({
                 id: z.string(),
