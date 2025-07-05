@@ -1,4 +1,4 @@
-import { exportUploads } from '@/app/functions/functions/export-uploads'
+import { exportUploads } from '@/app/functions/export-uploads'
 import { unwrapEither } from '@/shared/either'
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import status from 'http-status'

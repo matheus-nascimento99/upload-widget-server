@@ -5,7 +5,7 @@ import { eq } from 'drizzle-orm'
 import { randomUUID } from 'node:crypto'
 import { Readable } from 'node:stream'
 import { beforeAll, describe, expect, it, vi } from 'vitest'
-import { InvalidFileFormatError } from '../errors/invalid-file-format'
+import { InvalidFileFormatError } from './errors/invalid-file-format'
 import { uploadImage } from './upload-image'
 
 describe('Upload image', () => {
