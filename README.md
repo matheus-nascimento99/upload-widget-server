@@ -19,8 +19,8 @@ O banco de dados utilizado é **PostgreSQL**.
 
 - [Fastify](https://fastify.dev/)
 - [PostgreSQL](https://www.postgresql.org/)
-- [Prisma ORM](https://www.prisma.io/)
-- [CSV Export](https://www.npmjs.com/package/fast-csv)
+- [Drizzle ORM](https://www.prisma.io/)
+- [CSV Stringify](https://www.npmjs.com/package/csv-stringify)
 - [Vitest](https://vitest.dev/) para testes
 
 ---
@@ -40,7 +40,7 @@ cd upload-widget-server
 npm install
 ```
 
-### 3. Gere as tabelas com Prisma
+### 3. Gere as tabelas com Drizzle
 
 ```bash
 npm run db:generate
@@ -70,36 +70,6 @@ npm run test
 
 ---
 
-## 📁 Estrutura básica
-
-```
-upload-widget-server/
-├── src/
-│   ├── routes/            # Rotas da API (upload, listagem, exportação)
-│   ├── database/          # Configurações do Prisma
-│   ├── utils/             # Funções auxiliares (ex: cursor, exportação)
-│   └── server.ts          # Inicialização do servidor Fastify
-├── prisma/
-│   ├── schema.prisma      # Definição do modelo do banco
-├── .env                   # Variáveis de ambiente
-├── package.json
-└── README.md
-```
-
----
-
 ## 🧪 Testes
 
-Os testes cobrem os principais fluxos de upload e listagem. Eles utilizam a biblioteca **Vitest** para execução e assertions.
-
----
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
-
----
-
-## 🤝 Contribuindo
-
-Contribuições são bem-vindas! Fique à vontade para abrir issues ou pull requests.
+Os testes cobrem os principais fluxos de upload, listagem e exportação para CSV. Eles utilizam a biblioteca **Vitest** para execução e assertions.
