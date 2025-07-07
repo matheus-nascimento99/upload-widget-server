@@ -79,7 +79,5 @@ export const exportUploads = async (
     uploadToStoragePipeline,
   ])
 
-  console.log('url', url)
-
   return makeRight({ reportUrl: url })
 }
