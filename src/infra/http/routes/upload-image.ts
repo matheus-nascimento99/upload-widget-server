@@ -40,8 +40,6 @@ export const uploadImageRoute: FastifyPluginAsyncZod = async server => {
       }
 
       if (isRight(result)) {
-        console.log(unwrapEither(result))
-
         return reply.status(201).send()
       }
 
