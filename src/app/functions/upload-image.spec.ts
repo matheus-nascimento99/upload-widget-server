@@ -10,9 +10,9 @@ import { uploadImage } from './upload-image'
 
 describe('Upload image', () => {
   beforeAll(() => {
-    vi.mock('@/infra/storage/upload-image-to-storage', () => {
+    vi.mock('@/infra/storage/upload-file-to-storage', () => {
       return {
-        uploadImageToStorage: vi.fn().mockImplementation(() => {
+        uploadFileToStorage: vi.fn().mockImplementation(() => {
           return {
             key: `${randomUUID()}.jpg`,
             url: 'https://storage.com/image.jpg',
